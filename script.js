@@ -18,14 +18,13 @@ function createGrid(gridSize) {
 
 function changeColor(e) {
     if (setRandomColor) {
-        e.target.style.cssText = `background-color: ${randomColor()}`;
-        console.log(e.target.style.cssText = `background-color: ${randomColor()}`);
+        e.target.style.cssText = `background-color: ${randomColor()}`;;
     }
     else {
-    e.target.style.cssText = `background-color: ${getColor()}`;
-    console.log(e.target.style.cssText = `background-color: ${getColor()}`);
+        e.target.style.cssText = `background-color: ${getColor()}`;
     }
 }
+
 function getColor() {
     return colorPicker.value;
 }
@@ -44,7 +43,7 @@ function randomColor() {
 }
 
 const divContainer = document.querySelector('.container');
-
+// Initial grid creation with default 16 rowsXcollumns
 let grid = createGrid(16);
 
 // Options ref
@@ -87,6 +86,8 @@ cellAmount.addEventListener('change', (e) => {
     removeAllChildNodes(divContainer);
     grid = createGrid(cellAmount.value);
 });
+
+// TODO: Adding transition class when clearing grid
 
 
 
