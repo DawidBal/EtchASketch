@@ -1,26 +1,35 @@
-* > {
+* {
     box-sizing: border-box;
 }
 
 body {
-    background: rgb(51, 51, 51);
-    color: rgb(255, 255, 255);
+    background:rgb(51, 51, 51);
+    color: rgb(252, 163, 17);
+    font-family: 'Potta One', cursive;
 }
 
 .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1em;
+    width: 100vw;
 }
-.wrapper__options {
+.title {
+    margin: 10px 10px 0 10px;
+}
+.options {
     text-align: center;
-    flex: 1 1 100%;
 }
 .container-wrapper {
     position: relative;
-    height: 700px;
-    width: 700px;
-    margin: 20px;
+    width: 75vmin;
+}
+.container-wrapper:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
 }
 .container {
     position: absolute;
@@ -38,7 +47,7 @@ body {
 .grid-lines {
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
-
+/* 
  @media (max-width: 800px) {
     .container-wrapper {
         height: 350px;
@@ -51,4 +60,4 @@ body {
         height: 900px;
         width: 900px;
     }
-} 
+}  */
