@@ -3,8 +3,8 @@
 }
 
 body {
-    background: #333;
-    color: #fff;
+    background: rgb(51, 51, 51);
+    color: rgb(255, 255, 255);
 }
 
 .wrapper {
@@ -30,9 +30,10 @@ body {
     justify-self: center;
     height: 100%;
     width: 100%;
+    border: 2px solid rgb(255, 255, 255);
 }
 .grid {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 .grid-lines {
     border: 1px solid rgba(0, 0, 0, 0.2);
