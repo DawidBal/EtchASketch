@@ -12,17 +12,30 @@ function createGrid(gridSize) {
                                   grid-template-rows: repeat(${gridSize}, 1fr);`;
 
     const gridItems = Array.from(document.querySelectorAll('.grid'));
-    gridItems.forEach(cell => cell.addEventListener('mouseover', changeColor));
+    
+    gridItems.forEach(cell => cell.addEventListener('mousedown', (e) => {
+        buttonClicked = true;
+        changeColor(e);
+        gridItems.forEach(cell => cell.addEventListener('mouseover', changeColor));
+        
+    }));
+    document.body.addEventListener('mouseup', (e) => {
+        buttonClicked = false;
+        gridItems.forEach(cell => cell.removeEventListener('mouseover', changeColor));
+    });
     return gridItems;
 }
 
 function changeColor(e) {
-    if (setRandomColor) {
-        e.target.style.cssText = `background-color: ${randomColor()}`;;
-    }
-    else {
-        e.target.style.cssText = `background-color: ${getColor()}`;
-    }
+    if (buttonClicked) {
+        console.log(e.target);
+        if (setRandomColor) {
+            e.target.style.cssText = `background-color: ${randomColor()}`;;
+        }
+        else {
+            e.target.style.cssText = `background-color: ${getColor()}`;
+        }
+    }   
 }
 
 function getColor() {
@@ -30,7 +43,7 @@ function getColor() {
 }
 
 function removeAllChildNodes(parent) {
-    while(parent.firstChild) {
+    while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
@@ -52,7 +65,9 @@ const btnClearGrid = document.querySelector('.options__clear');
 const colorPicker = document.querySelector('#colorpicker');
 const cellAmount = document.querySelector('#cellamount');
 const cboxRandomColor = document.querySelector('#randomcolor');
+const sliderNum = document.querySelector('.sldnum');
 let setRandomColor = false;
+let buttonClicked = false;
 
 // * GRID TOGGLE LINES * //
 btnToggleLines.addEventListener('click', () => {
@@ -76,18 +91,10 @@ cboxRandomColor.addEventListener('click', () => {
 
 // * GRID CELL AMOUNT RESIZE * //
 cellAmount.addEventListener('change', () => {
-    if (cellAmount.value > 100) {
-        cellAmount.value = 100;
-    }
-    else if (cellAmount.value <= 0) {
-        cellAmount.value = 1;
-    }
-
+    sliderNum.textContent = cellAmount.value;
     removeAllChildNodes(divContainer);
     grid = createGrid(cellAmount.value);
 });
-
-// TODO: Adding transition class when clearing grid
 
 
 
