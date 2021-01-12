@@ -14,25 +14,30 @@ function createGrid(gridSize) {
     const gridItems = Array.from(document.querySelectorAll('.grid'));
     
     gridItems.forEach(cell => cell.addEventListener('mousedown', (e) => {
-        buttonClicked = true;
+        leftMouseBtn = true;
         changeColor(e);
         gridItems.forEach(cell => cell.addEventListener('mouseover', changeColor));
         
     }));
     document.body.addEventListener('mouseup', (e) => {
-        buttonClicked = false;
+        leftMouseBtn = false;
         gridItems.forEach(cell => cell.removeEventListener('mouseover', changeColor));
     });
     return gridItems;
 }
 
 function changeColor(e) {
-    if (buttonClicked) {
-        if (setRandomColor) {
-            e.target.style.cssText = `background-color: ${randomColor()}`;;
+    if (leftMouseBtn) {
+        if (e.shiftKey) {
+            e.target.style.cssText = `background-color: rgb(255, 255, 255)`;
         }
         else {
-            e.target.style.cssText = `background-color: ${getColor()}`;
+            if (setRandomColor) {
+                e.target.style.cssText = `background-color: ${randomColor()}`;;
+            }
+            else {
+                e.target.style.cssText = `background-color: ${getColor()}`;
+            }
         }
     }   
 }
@@ -48,9 +53,9 @@ function removeAllChildNodes(parent) {
 }
 
 function randomColor() {
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
+    const r = Math.floor(Math.random() * 254);
+    const g = Math.floor(Math.random() * 254);
+    const b = Math.floor(Math.random() * 254);
     return `rgb(${r}, ${g}, ${b})`;
 }
 
@@ -66,7 +71,7 @@ const cellAmount = document.querySelector('#cellamount');
 const cboxRandomColor = document.querySelector('#randomcolor');
 const sliderNum = document.querySelector('.sldnum');
 let setRandomColor = false;
-let buttonClicked = false;
+let leftMouseBtn = false;
 
 // * GRID TOGGLE LINES * //
 btnToggleLines.addEventListener('click', () => {
@@ -75,7 +80,7 @@ btnToggleLines.addEventListener('click', () => {
 
 // * GRID CELL COLOR ERASE * //
 btnClearGrid.addEventListener('click', () => {
-    grid.forEach(cell => cell.style.cssText = "background-color: #FFF");
+    grid.forEach(cell => cell.style.cssText = "background-color: rgb(255, 255, 255)");
 });
 
 cboxRandomColor.addEventListener('click', () => {
