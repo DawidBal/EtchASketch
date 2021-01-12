@@ -55,16 +55,16 @@ const cboxRandomColor = document.querySelector('#randomcolor');
 let setRandomColor = false;
 
 // * GRID TOGGLE LINES * //
-btnToggleLines.addEventListener('click', (e) => {
+btnToggleLines.addEventListener('click', () => {
     grid.forEach(cell => cell.classList.toggle('grid-lines'));
 });
 
 // * GRID CELL COLOR ERASE * //
-btnClearGrid.addEventListener('click', (e) => {
+btnClearGrid.addEventListener('click', () => {
     grid.forEach(cell => cell.style.cssText = "background-color: #FFF");
 });
 
-cboxRandomColor.addEventListener('click', (e) => {
+cboxRandomColor.addEventListener('click', () => {
     if (cboxRandomColor.checked) {
         setRandomColor = true;
     }
@@ -75,7 +75,7 @@ cboxRandomColor.addEventListener('click', (e) => {
 })
 
 // * GRID CELL AMOUNT RESIZE * //
-cellAmount.addEventListener('change', (e) => {
+cellAmount.addEventListener('change', () => {
     if (cellAmount.value > 100) {
         cellAmount.value = 100;
     }

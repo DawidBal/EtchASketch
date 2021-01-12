@@ -47,17 +47,3 @@ body {
 .grid-lines {
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
-/* 
- @media (max-width: 800px) {
-    .container-wrapper {
-        height: 350px;
-        width: 350px;
-    }
-}
-@media (min-width: 1400px) {
-    .container-wrapper {
-        position: relative;
-        height: 900px;
-        width: 900px;
-    }
-}  */
