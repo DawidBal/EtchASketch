@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body {
-    background:rgb(51, 51, 51);
+    background:rgb(34, 34, 34);
     color: rgb(252, 163, 17);
     font-family: 'Potta One', cursive;
     font-size: 16px;
@@ -64,12 +64,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background: rgb(48, 48, 48);
+    padding: 1rem;
+    margin: 1rem;
 }
 .options__title {
     flex: 1 1 100%;
     margin: 0 0 1rem 0;
 }
-
 .nojaniewiem {
     flex: 1 1 100%;
     display: flex;
@@ -81,12 +83,6 @@ body {
     justify-content: center;
     gap: 5px;
 }
-.color {
-    display: flex;
-}
-.color > * {
-    flex: 1 1 50%;
-}
 .buttons_wrapper {
     flex: 1 1 100%;
     display: flex;
@@ -96,4 +92,12 @@ body {
     flex: 1 1 calc(50% - 20px);
     margin: 10px;
 }
-
+.colorcheckbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#randomcolor {
+    width: 16px;
+    height: 16px;
+}
