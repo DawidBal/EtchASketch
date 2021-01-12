@@ -28,7 +28,6 @@ function createGrid(gridSize) {
 
 function changeColor(e) {
     if (buttonClicked) {
-        console.log(e.target);
         if (setRandomColor) {
             e.target.style.cssText = `background-color: ${randomColor()}`;;
         }
