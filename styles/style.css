@@ -1,103 +1,141 @@
-*, *::after, *::before {
+:root {
+	--white: rgb(255, 255, 255);
+	--redstart: rgb(230, 57, 70);
+	--redend: rgb(220, 20, 60);
+	--gray: rgb(54, 54, 54);
+	--blue: rgb(0, 48, 73);
+}
+*,
+*::after,
+*::before {
 	-webkit-user-select: none;
 	-webkit-user-drag: none;
 	-webkit-app-region: no-drag;
-    cursor: default;
-    box-sizing: border-box;
+	cursor: default;
+	box-sizing: border-box;
 }
+
 body {
-    background:rgb(34, 34, 34);
-    color: rgb(252, 163, 17);
-    font-family: 'Potta One', cursive;
-    font-size: 16px;
+	background: var(--blue);
+	color: var(--white);
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 18px;
 }
 
-.title {
-    margin: 10px 10px 0 10px;
-}
-
-/* Grid */
 .wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 1em;
-    width: 100vw;
-}
-.container-wrapper {
-    position: relative;
-    width: 75vmin;
-}
-.container-wrapper:after {
-    content: '';
-    display: block;
-    padding-bottom: 100%;
+	grid-template-rows: 1fr auto;
+	justify-items: center;
+	height: 100%;
+	width: 100%;
+	gap: 1rem;
 }
 
-/* Created grid */
-.container {
-    position: absolute;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    justify-self: center;
-    height: 100%;
-    width: 100%;
-    border: 2px solid rgb(255, 255, 255);
-}
 .grid {
-    background-color: rgb(255, 255, 255);
-}
-.grid-lines {
-    border: 1px solid rgba(0, 0, 0, 0.2);
+	display: grid;
 }
 
-.hovered {
-    background: rgba(255, 255, 255, 0.123);
+.grid--content {
+	justify-content: center;
+	align-content: center;
 }
 
-/* Options */
+.grid--items {
+	justify-items: center;
+	align-items: center;
+}
+.wrap {
+	position: relative;
+	width: calc(100% - 2rem);
+	margin: 1rem;
+}
+.wrap::after {
+	content: '';
+	display: block;
+	padding-bottom: 100%;
+}
+.container {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+.sketch__wrapper {
+	background: linear-gradient(40deg, var(--redstart), var(--redend));
+	grid-template-rows: auto 1fr;
+	position: relative;
+	margin-top: 1rem;
+	width: 70vmin;
+	border: 1px solid var(--white);
+}
+.sketch__title {
+	color: var(--white);
+	font-size: 3rem;
+	margin: 1rem 0 0 0;
+	padding: 0;
+}
+.container__cell {
+	background: var(--white, rgb(255, 255, 255));
+}
+.container__cell--outline {
+	border: 1px solid rgba(0, 0, 0, 0.342);
+}
+
 .options {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    background: rgb(48, 48, 48);
-    padding: 1rem;
-    margin: 1rem;
+	width: 70vmin;
+	gap: 1rem;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-areas: "options buttons" "options buttons";
+	justify-items: center;
+}
+.options > * {
+	padding: 0;
+	margin: 0;
+	font-size: 1.5rem;
 }
 .options__title {
-    flex: 1 1 100%;
-    margin: 0 0 1rem 0;
+	font-size: 2rem;
+	padding: 0 5px;
+	grid-area: title;
 }
-.nojaniewiem {
-    flex: 1 1 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.options__field {
+	border-color: var(--redstart);
 }
-.slider {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
+.options__wrapper {
+	grid-area: options;
+	justify-self: end;
+}
+.options__gridsize,
+.options_randomcolor {
+	display: flex;
+	align-items: center;
+	gap: 5px;
 }
 .buttons_wrapper {
-    flex: 1 1 100%;
-    display: flex;
-    justify-content: space-evenly;
+	grid-area: buttons;
+	justify-self: start;
+	display: grid;
+	gap: 1rem;
 }
-.buttons_wrapper > * {
-    flex: 1 1 calc(50% - 20px);
-    margin: 10px;
+.randomcolor {
+	width: 20px;
+	height: 20px;
 }
-.colorcheckbox {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.button {
+	padding: 0.5rem 2rem;
+	font-size: 1.5rem;
+	color: var(--white);
+	border: 1px solid var(--redstart);
+	background: var(--redstart);
+	border-radius: 3px;
+	box-shadow: 3px 3px rgb(97, 24, 30);
 }
-#randomcolor {
-    width: 16px;
-    height: 16px;
+.button:hover {
+	transform: scale(1.1);
+}
+.button:active {
+	transform: scale(1);
 }
