@@ -1,3 +1,5 @@
+/* Global Styles */
+
 :root {
 	--white: rgb(255, 255, 255);
 	--redstart: rgb(230, 57, 70);
@@ -22,11 +24,14 @@ body {
 	font-size: 18px;
 }
 
+/* Grid Container */
+
 .wrapper {
-	grid-template-rows: 1fr auto;
-	justify-items: center;
 	height: 100%;
 	width: 100%;
+
+	grid-template-rows: 1fr auto;
+	justify-items: center;
 	gap: 1rem;
 }
 
@@ -54,9 +59,10 @@ body {
 	padding-bottom: 100%;
 }
 .container {
-	position: absolute;
 	height: 100%;
 	width: 100%;
+
+	position: absolute;
 	left: 0;
 	top: 0;
 	bottom: 0;
@@ -83,30 +89,27 @@ body {
 	border: 1px solid rgba(0, 0, 0, 0.342);
 }
 
-.options {
-	width: 70vmin;
-	gap: 1rem;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	grid-template-areas: "options buttons" "options buttons";
-	justify-items: center;
-}
+/* Options */
+
 .options > * {
 	padding: 0;
 	margin: 0;
 	font-size: 1.5rem;
 }
+.options__wrapper {
+	width: 70vmin;
+	gap: 1rem;
+	grid-template-rows: repeat(auto-fit, 1fr);
+}
 .options__title {
 	font-size: 2rem;
 	padding: 0 5px;
-	grid-area: title;
+}
+.gridsize {
+	font-size: 50%;
 }
 .options__field {
 	border-color: var(--redstart);
-}
-.options__wrapper {
-	grid-area: options;
-	justify-self: end;
 }
 .options__gridsize,
 .options_randomcolor {
@@ -115,8 +118,6 @@ body {
 	gap: 5px;
 }
 .buttons_wrapper {
-	grid-area: buttons;
-	justify-self: start;
 	display: grid;
 	gap: 1rem;
 }
