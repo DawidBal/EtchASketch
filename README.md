@@ -1,7 +1,7 @@
 # Etch A Sketch
 Etch-A-Sketch project is a browser representation of the real world [drawing toy](https://en.wikipedia.org/wiki/Etch_A_Sketch).
 
-Live: [Link](https://shatteredone.github.io/EtchASketch/)
+Live: 🌐 [Link](https://dawidbal.github.io/EtchASketch/)
 
 Project from [The Odin Project](https://www.theodinproject.com).
 
