@@ -1,144 +1,145 @@
 /* Global Styles */
 
 :root {
-	--white: rgb(255, 255, 255);
-	--redstart: rgb(230, 57, 70);
-	--redend: rgb(220, 20, 60);
-	--gray: rgb(54, 54, 54);
-	--blue: rgb(0, 48, 73);
+  --white: rgb(255, 255, 255);
+  --redstart: rgb(230, 57, 70);
+  --redend: rgb(220, 20, 60);
+  --gray: rgb(54, 54, 54);
+  --blue: rgb(0, 48, 73);
 }
 *,
 *::after,
 *::before {
-	-webkit-user-select: none;
-	-webkit-user-drag: none;
-	-webkit-app-region: no-drag;
-	cursor: default;
-	box-sizing: border-box;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
+  box-sizing: border-box;
 }
 
 body {
-	background: var(--blue);
-	color: var(--white);
-	font-family: 'Annie Use Your Telescope', cursive;
-	font-size: 18px;
+  background: var(--blue);
+  color: var(--white);
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size: 18px;
 }
 
 /* Grid Container */
 
 .wrapper {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 
-	grid-template-rows: 1fr auto;
-	justify-items: center;
-	gap: 1rem;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  gap: 1rem;
 }
 
 .grid {
-	display: grid;
+  display: grid;
 }
 
 .grid--content {
-	justify-content: center;
-	align-content: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .grid--items {
-	justify-items: center;
-	align-items: center;
+  justify-items: center;
+  align-items: center;
 }
 .wrap {
-	position: relative;
-	width: calc(100% - 2rem);
-	margin: 1rem;
+  position: relative;
+  width: calc(100% - 2rem);
+  margin: 1rem;
 }
 .wrap::after {
-	content: '';
-	display: block;
-	padding-bottom: 100%;
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 .container {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	right: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }
 .sketch__wrapper {
-	background: linear-gradient(40deg, var(--redstart), var(--redend));
-	grid-template-rows: auto 1fr;
-	position: relative;
-	margin-top: 1rem;
-	width: 65vmin;
-	border: 1px solid var(--white);
+  background: linear-gradient(40deg, var(--redstart), var(--redend));
+  grid-template-rows: auto 1fr;
+  position: relative;
+  margin-top: 1rem;
+  width: 65vmin;
+  border: 1px solid var(--white);
 }
 .sketch__title {
-	color: var(--white);
-	font-size: 3rem;
-	margin: 1rem 0 0 0;
-	padding: 0;
+  color: var(--white);
+  font-size: 3rem;
+  margin: 1rem 0 0 0;
+  padding: 0;
 }
 .container__cell {
-	background: var(--white, rgb(255, 255, 255));
+  background: var(--white, rgb(255, 255, 255));
 }
 .container__cell--outline {
-	border: 1px solid rgba(0, 0, 0, 0.342);
+  border: 1px solid rgba(0, 0, 0, 0.342);
 }
 
 /* Options */
 
 .options > * {
-	padding: 0;
-	margin: 0;
-	font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5rem;
 }
 .options__wrapper {
-	width: 70vmin;
-	gap: 1rem;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 70vmin;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .options__title {
-	font-size: 2rem;
-	padding: 0 5px;
+  font-size: 2rem;
+  padding: 0 5px;
 }
 .gridsize {
-	font-size: 50%;
+  font-size: 50%;
 }
 .options__field {
-	border-color: var(--redstart);
+  border-color: var(--redstart);
 }
 .options__gridsize,
 .options_randomcolor {
-	display: flex;
-	align-items: center;
-	gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .buttons_wrapper {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: minmax(50px, 450px);
-	justify-content: center;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(50px, 450px);
+  justify-content: center;
 }
 .randomcolor {
-	width: 20px;
-	height: 20px;
+  width: 20px;
+  height: 20px;
 }
 .button {
-	padding: 0.5rem 2rem;
-	font-size: 1.5rem;
-	color: var(--white);
-	border: 1px solid var(--redstart);
-	background: var(--redstart);
-	border-radius: 3px;
-	box-shadow: 3px 3px rgb(97, 24, 30);
+  padding: 0.5rem 2rem;
+  font-size: 1.5rem;
+  color: var(--white);
+  border: 1px solid var(--redstart);
+  background: var(--redstart);
+  border-radius: 3px;
+  box-shadow: 3px 3px rgb(97, 24, 30);
+  transition: 0.2s;
 }
 .button:hover {
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 .button:active {
-	transform: scale(1);
+  transform: scale(1);
 }
