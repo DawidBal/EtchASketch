@@ -143,3 +143,17 @@ body {
 .button:active {
   transform: scale(1);
 }
+
+.history__title {
+  margin: 1rem 0 0.5rem 0;
+  padding: 0;
+}
+.history__color {
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid var(--white);
+}
+
+.history__color:not(:last-child) {
+  margin-right: 0.5rem;
+}
