@@ -17,11 +17,12 @@ Project from [The Odin Project](https://www.theodinproject.com).
   * Prettier
 * Git
   * Github
+  * [GitKraken](https://www.gitkraken.com/)
   
 ### Third party code
 * [Modern-normalize](https://github.com/sindresorhus/modern-normalize) - For Cross-browser compatibility
 
-### Outcome
+## Outcome
 * Used **BEM** methodology for the first time
 * Used CSS3 **grid** and **flex** for rensponsive layout without using **@media** queries
 * Used HTML5 semantics
