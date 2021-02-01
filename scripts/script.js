@@ -9,7 +9,9 @@ function createGrid(gridSize) {
   }
   divContainer.style.cssText = `grid-template-columns: repeat(${gridSize}, 1fr);
                                   grid-template-rows: repeat(${gridSize}, 1fr);`;
+}
 
+function addGridItemsEvents() {
   const gridItems = Array.from(document.querySelectorAll(".container__cell"));
 
   gridItems.forEach((cell) =>
@@ -65,24 +67,26 @@ function randomColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-function setColorFromHistory(eventHandler, origin, color) {
-  origin.addEventListener(eventHandler, (e) => {
+function setColorFromHistory(eventHandler, element, color) {
+  element.addEventListener(eventHandler, () => {
     colorPicker.value = color;
   });
 }
 
 function showColorHistory() {
   const history = document.querySelector(".options__history");
-  for (let i = colorArr.length - 1; i < colorArr.length; i++) {
-    if (btnArr.length >= 5) {
-      history.removeChild(btnArr[0]);
-      btnArr.splice(0, 1);
+
+  let i = colorHistory.colors.length - 1;
+  for (; i < colorHistory.colors.length; i++) {
+    if (colorHistory.buttons.length >= 5) {
+      history.removeChild(colorHistory.buttons[0]);
+      colorHistory.buttons.splice(0, 1);
     }
     const btn = document.createElement("button");
     btn.classList.add("history__color");
-    btn.style.cssText = `background: ${colorArr[i]}`;
-    setColorFromHistory("click", btn, colorArr[i]);
-    btnArr.push(btn);
+    btn.style.cssText = `background: ${colorHistory.colors[i]}`;
+    setColorFromHistory("click", btn, colorHistory.colors[i]);
+    colorHistory.buttons.push(btn);
     history.append(btn);
   }
 }
@@ -90,7 +94,7 @@ function showColorHistory() {
 const divContainer = document.querySelector(".container");
 // Initial grid creation with default 16 rowsXcollumns
 let grid = createGrid(16);
-
+addGridItemsEvents();
 // Options ref
 const btnToggleLines = document.querySelector(".options__togglelines");
 const btnClearGrid = document.querySelector(".options__clear");
@@ -98,10 +102,15 @@ const colorPicker = document.querySelector("#color");
 const cellAmount = document.querySelector("#gsize");
 const cboxRandomColor = document.querySelector("#togglerandom");
 const sliderNum = document.querySelector(".sldnum");
-const colorArr = [];
-const btnArr = [];
 let setRandomColor = false;
 let leftMouseBtn = false;
+const colorHistory = {
+  colors: [],
+  buttons: [],
+};
+const RGB_COLORS = {
+  WHITE: "rgb(255, 255, 255)",
+};
 
 // * GRID TOGGLE LINES * //
 btnToggleLines.addEventListener("click", () => {
@@ -111,7 +120,7 @@ btnToggleLines.addEventListener("click", () => {
 // * GRID CELL COLOR ERASE * //
 btnClearGrid.addEventListener("click", () => {
   grid.forEach(
-    (cell) => (cell.style.cssText = "background-color: rgb(255, 255, 255)")
+    (cell) => (cell.style.cssText = `background-color: ${RGB_COLORS.WHITE}`)
   );
 });
 
@@ -128,12 +137,13 @@ cellAmount.addEventListener("change", () => {
   sliderNum.textContent = cellAmount.value;
   removeAllChildNodes(divContainer);
   grid = createGrid(cellAmount.value);
+  addGridItemsEvents();
 });
 
 colorPicker.addEventListener("change", () => {
-  if (colorArr.length >= 5) {
-    colorArr.shift();
+  if (colorHistory.colors.length >= 5) {
+    colorHistory.colors.shift();
   }
-  colorArr.push(colorPicker.value);
+  colorHistory.colors.push(colorPicker.value);
   showColorHistory();
 });
