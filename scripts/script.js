@@ -93,8 +93,8 @@ function showColorHistory() {
 
 const divContainer = document.querySelector(".container");
 // Initial grid creation with default 16 rowsXcollumns
-let grid = createGrid(16);
-addGridItemsEvents();
+createGrid(16);
+let grid = addGridItemsEvents();
 // Options ref
 const btnToggleLines = document.querySelector(".options__togglelines");
 const btnClearGrid = document.querySelector(".options__clear");
@@ -136,8 +136,8 @@ cboxRandomColor.addEventListener("click", () => {
 cellAmount.addEventListener("change", () => {
   sliderNum.textContent = cellAmount.value;
   removeAllChildNodes(divContainer);
-  grid = createGrid(cellAmount.value);
-  addGridItemsEvents();
+  createGrid(cellAmount.value);
+  grid = addGridItemsEvents();
 });
 
 colorPicker.addEventListener("change", () => {
