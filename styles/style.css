@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Variables */
 
 :root {
   --white: rgb(255, 255, 255);
@@ -7,6 +7,9 @@
   --gray: rgb(54, 54, 54);
   --blue: rgb(0, 48, 73);
 }
+
+/* Global Styles */
+
 *,
 *::after,
 *::before {
@@ -23,17 +26,6 @@ body {
   font-family: "Annie Use Your Telescope", cursive;
 }
 
-/* Grid Container */
-
-.wrapper {
-  height: 100%;
-  width: 100%;
-
-  grid-template-rows: 1fr auto;
-  justify-items: center;
-  gap: 1rem;
-}
-
 .grid {
   display: grid;
 }
@@ -46,6 +38,17 @@ body {
 .grid--items {
   justify-items: center;
   align-items: center;
+}
+
+/* Grid Container */
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  gap: 1rem;
 }
 .wrap {
   position: relative;
@@ -113,6 +116,9 @@ body {
   align-items: center;
   gap: 5px;
 }
+.gridslider {
+  width: 10rem;
+}
 .randomcolor {
   width: 1.25rem;
   height: 1.25rem;
@@ -175,6 +181,7 @@ body {
   transform: scale(1);
 }
 
+/* Media queries */
 @media screen and (max-width: 35rem) {
   .eraseinfo {
     display: none;
