@@ -14,21 +14,9 @@ function createGrid(gridSize) {
 function addGridItemsEvents() {
   const gridItems = Array.from(document.querySelectorAll(".container__cell"));
 
-  gridItems.forEach((cell) =>
-    cell.addEventListener("mousedown", (e) => {
-      leftMouseBtn = true;
-      changeColor(e);
-      gridItems.forEach((cell) =>
-        cell.addEventListener("mouseover", changeColor)
-      );
-    })
-  );
-  document.body.addEventListener("mouseup", () => {
-    leftMouseBtn = false;
-    gridItems.forEach((cell) =>
-      cell.removeEventListener("mouseover", changeColor)
-    );
-  });
+  gridItems.forEach((cell) => cell.addEventListener("mouseover", changeColor));
+  divContainer.addEventListener("mousedown", (e) => { leftMouseBtn = true; changeColor(e)});
+  divContainer.addEventListener("mouseup", () => {leftMouseBtn = false});
   return gridItems;
 }
 
@@ -37,18 +25,19 @@ function cellBackground(cell, color) {
 }
 
 function changeColor(e) {
+  if (!leftMouseBtn) { return }
+  
   const holdShift = e.shiftKey;
   const cell = e.target;
   const colorType = setRandomColor ? randomColor() : getColor();
 
-  if (leftMouseBtn) {
-    if (holdShift) {
-      cell.style.cssText = "";
-    } else {
-      cellBackground(cell, colorType);
-    }
+  if (holdShift) {
+    cell.style.cssText = "";
+  } else {
+    cellBackground(cell, colorType);
   }
 }
+
 
 function getColor() {
   return colorPicker.value;
@@ -102,12 +91,15 @@ const colorPicker = document.querySelector("#color");
 const cellAmount = document.querySelector("#gsize");
 const cboxRandomColor = document.querySelector("#togglerandom");
 const sliderNum = document.querySelector(".sldnum");
+
 let setRandomColor = false;
 let leftMouseBtn = false;
+
 const colorHistory = {
   colors: [],
   buttons: [],
 };
+
 const RGB_COLORS = {
   WHITE: "rgb(255, 255, 255)",
 };
